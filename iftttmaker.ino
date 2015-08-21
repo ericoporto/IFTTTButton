@@ -1,3 +1,25 @@
+// The MIT License
+// 
+// Copyright (c) 2015 Neil Webber
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+
 include <SPI.h>
 #include <Ethernet.h>
 #include <EEPROM.h>
@@ -46,7 +68,7 @@ char *append_ul(char *here, unsigned long u) {
 
 
 //
-// This is called once per iteration to read the pins
+// This is called once per iteration to read the pin
 // and send a POST to trigger the IFTTT/Maker event
 //
 
@@ -81,7 +103,7 @@ void update_event() {
     // construct the JSON; remember where we started so we will know len
     char *json_start = p;
 
-    // As described - this example simply reads three pins and reports them
+    // As described - this example reports a pin, uptime, and "hello world"
     p = append_str(p, "{\"value1\":\"");
     p = append_ul(p, analogRead(READ_THIS_PIN));
     p = append_str(p, "\",\"value2\":\"");
