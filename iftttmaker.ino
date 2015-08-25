@@ -1,6 +1,10 @@
+// This code makes a button connect on pin 2 of the Ethernet Shield 
+// connected to an Arduino trigger a event named button_pressed on
+// the IFTTT Maker Channel.
+
 // The MIT License
 // 
-// Copyright (c) 2015 Neil Webber
+// Copyright (c) 2015 Erico Porto
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -19,37 +23,23 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
-
 #include <SPI.h>
 #include <Ethernet.h>
 #include <EEPROM.h>
 
-//
+// variables will change:
+int buttonState = 0;         // variable for reading the pushbutton status
+
 // Ethernet MAC address to use.
-//     Usually Arduino Ethernet shields come with an address printed on
-//     them (sometimes on underside of the board). Use that one here.
-//
 byte mac[] = { 0x66, 0x55, 0x44, 0x33, 0x22, 0x11 };  // REPLACE WITH REAL ADDR
 
-//
 // IFTTT Maker parameters:
 //     Key -- Obtained when setting up/connecting the Maker channel in IFTTT
 //   Event -- Arbitrary name for the event; used in the IFTTT recipe.
-//
-char MakerIFTTT_Key[] = "r8X-blahblahYourKeyGoesHere";
-char MakerIFTTT_Event[] = "arduino_example";
+char MakerIFTTT_Key[] = "blahblahYourKeyGoesHere";
+char MakerIFTTT_Event[] = "button_pressed";
 
-//
-// The IFTTT/Maker channel allows for three values to be reported
-// which can be used as "ingredients" in the IFTTT recipe.
-//
-// In this simple example the values come from:
-//    reading a PIN                    (reported as value1)
-//    reporting uptime in milliseconds (reported as value2)
-//    the string "hello, world!"       (reported as value3)
-//
-//
-#define READ_THIS_PIN       3      // will be reported as "value1"
+#define READ_THIS_PIN       3      // the button pin
 
 // helper functions for constructing the POST data
 // append a string or int to a buffer, return the resulting end of string
@@ -72,7 +62,8 @@ char *append_ul(char *here, unsigned long u) {
 // and send a POST to trigger the IFTTT/Maker event
 //
 
-void update_event() {
+void send_event() {
+
     EthernetClient client = EthernetClient();
 
     // connect to the Maker event server
@@ -103,15 +94,6 @@ void update_event() {
     // construct the JSON; remember where we started so we will know len
     char *json_start = p;
 
-    // As described - this example reports a pin, uptime, and "hello world"
-    p = append_str(p, "{\"value1\":\"");
-    p = append_ul(p, analogRead(READ_THIS_PIN));
-    p = append_str(p, "\",\"value2\":\"");
-    p = append_ul(p, millis());
-    p = append_str(p, "\",\"value3\":\"");
-    p = append_str(p, "hello, world!");
-    p = append_str(p, "\"}");
-
     // go back and fill in the JSON length
     // we just know this is at most 2 digits (and need to fill in both)
     int i = strlen(json_start);
@@ -129,11 +111,12 @@ void setup() {
     Ethernet.begin(mac);
 
     // the input pin for this example
-    pinMode(READ_THIS_PIN, INPUT_PULLUP);
+    pinMode(READ_THIS_PIN, INPUT);
 }
 
 // how often to read the pins and update IFTTT
-#define LOOP_DELAY_MSEC     (300*1000L)   // 5 minutes
+#define LOOP_DELAY_MSEC     (1*1000L)   // 1 second
+#define BUTTON_DELAY_MSEC     (15*1000L)   // 15 seconds
 
 // main body; called over and over if it ever returns
 void loop() {
@@ -141,8 +124,12 @@ void loop() {
     // DHCP lease check/renewal (library only sends request if expired)
     Ethernet.maintain();
 
-    // read the pins, send to IFTTT/Maker
-    update_event();
+    buttonState = digitalRead(READ_THIS_PIN);
+    if (buttonState == HIGH) {  
+         // send to IFTTT/Maker
+         send_event();
+         delay(BUTTON_DELAY_MSEC);
+    }
 
     // only "this often"
     delay(LOOP_DELAY_MSEC);
