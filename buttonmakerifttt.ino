@@ -1,6 +1,6 @@
 // This code makes a button connect on pin 2 of the Ethernet Shield 
 // connected to an Arduino trigger a event named button_pressed on
-// the IFTTT Maker Channel.
+// the IFTTT Maker Channel. Based on the Neil Webber analog read code.
 
 // The MIT License
 // 
