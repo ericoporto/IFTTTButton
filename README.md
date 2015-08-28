@@ -65,5 +65,6 @@ Seriously, you can trigger anything you want that's available on IFTTT.
 
 #Credits
 
-The original code was made by [Outofmbufs]](https://github.com/outofmbufs) and it's
+The original code was made by [Outofmbufs](https://github.com/outofmbufs) and it's
 available in his [Gist page](https://gist.github.com/outofmbufs/d6ced37b49a484c495f0).
+This code is a Fork!
