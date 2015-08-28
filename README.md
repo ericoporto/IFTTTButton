@@ -3,7 +3,8 @@ A physical IFTTT Button, using Arduino.
 
 ![End build](https://raw.githubusercontent.com/ericoporto/IFTTTButton/master/img/built.jpg)
 
-#How to build
+How to build
+------------
 
 You will need the following:
 
@@ -30,7 +31,8 @@ Remember to place the Ethernet Shield on the Arduino.
 
 So everything is in place. I built a lego enclosure, but you can do what suits you best.
 
-#The code
+The code
+--------
 
 So for this to work, first you have to be registered in IFTTT and connect to the Maker Channel.
 
@@ -46,7 +48,8 @@ Next, get the code `iftttbutton.ino` on top of this page. With it open on your p
 Place the key you got where it's written `blahblahYourKeyGoesHere`.
 In the line below it's the name of the event, which is `button_pressed`.
 
-#Test
+Test
+----
 
 Add this recipe: https://ifttt.com/recipes/319945-track-a-button-to-spreadsheet
 
@@ -55,5 +58,12 @@ Now if you open the spreadsheet, it will add a new row when you click the button
 
 ![it works!](https://raw.githubusercontent.com/ericoporto/IFTTTButton/master/img/itworksyey.gif)
 
-#Do whatever you want
+Do whatever you want
+--------------------
+
 Seriously, you can trigger anything you want that's available on IFTTT.
+
+#Credits
+
+The original code was made by [Outofmbufs]](https://github.com/outofmbufs) and it's
+available in his [Gist page](https://gist.github.com/outofmbufs/d6ced37b49a484c495f0).
