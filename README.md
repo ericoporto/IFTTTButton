@@ -1,5 +1,4 @@
-#DuinoButton
-
+#IFTTTButton
 A physical IFTTT Button, using Arduino.
 
 ![End build](https://raw.githubusercontent.com/ericoporto/IFTTTButton/master/img/built.jpg)
