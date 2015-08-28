@@ -38,3 +38,12 @@ So for this to work, first you have to be registered in IFTTT and connect to the
 ![The Key from the Maker Channel on IFTTT](img/makerchannel.jpg)
 
 On the [Maker Channel page](https://ifttt.com/maker) there is a key available. Copy it, we will need it!
+
+Next, get the code `iftttbutton.ino` on top of this page. With it open on your pc, go on the following lines (use Ctrl+F):
+
+    char MakerIFTTT_Key[] = "blahblahYourKeyGoesHere";
+    char MakerIFTTT_Event[] = "button_pressed";
+
+Place the key you got where it's written `blahblahYourKeyGoesHere`.
+In the line below it's the name of the event, which is `button_pressed`.
+You can use it when you create your event on the IFTTT *Create a recipe* or you can change and
