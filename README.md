@@ -2,7 +2,7 @@
 
 A physical IFTTT Button, using Arduino.
 
-![End build](img/built.jpg)
+![End build](https://raw.githubusercontent.com/ericoporto/IFTTTButton/master/img/built.jpg)
 
 #Hot to build
 
@@ -15,7 +15,7 @@ You will need the following:
 * Arduino Ethernet Shield
 * Arduino Uno
 
-![Materials](img/materials.jpg)
+![Materials](https://raw.githubusercontent.com/ericoporto/IFTTTButton/master/img/materials.jpg)
 
 Ok so the resistor can be actually any one between 2k and 20k Ohm.
 The wire I'm using was cut from another ethernet cable I had.
@@ -27,7 +27,7 @@ This is the [same connection](https://www.arduino.cc/en/uploads/Tutorial/button_
 You should have something similar to the following - I soldered instead of using a breadboard, but breadboard is fine.
 Remember to place the Ethernet Shield on the Arduino.
 
-![Done!](img/building.jpg)
+![Done!](https://raw.githubusercontent.com/ericoporto/IFTTTButton/master/img/building.jpg)
 
 So everything is in place. I built a lego enclosure, but you can do what suits you best.
 
@@ -35,7 +35,7 @@ So everything is in place. I built a lego enclosure, but you can do what suits y
 
 So for this to work, first you have to be registered in IFTTT and connect to the Maker Channel.
 
-![The Key from the Maker Channel on IFTTT](img/makerchannel.jpg)
+![The Key from the Maker Channel on IFTTT](https://raw.githubusercontent.com/ericoporto/IFTTTButton/master/img/makerchannel.jpg)
 
 On the [Maker Channel page](https://ifttt.com/maker) there is a key available. Copy it, we will need it!
 
