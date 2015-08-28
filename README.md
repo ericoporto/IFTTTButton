@@ -53,7 +53,7 @@ Add this recipe: https://ifttt.com/recipes/319945-track-a-button-to-spreadsheet
 You will have to connect the Google Drive Channel. The spreadsheet will be created in IFTTT/Maker/button_pressed .
 Now if you open the spreadsheet, it will add a new row when you click the button.
 
-![it works!](https://raw.githubusercontent.com/ericoporto/IFTTTButton/master/img/itworks.gif)
+![it works!](https://raw.githubusercontent.com/ericoporto/IFTTTButton/master/img/itworksyey.gif)
 
 #Do whatever you want
 Seriously, you can trigger anything you want that's available on IFTTT.
