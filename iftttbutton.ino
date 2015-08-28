@@ -1,9 +1,9 @@
-// This code makes a button connect on pin 2 of the Ethernet Shield 
+// This code makes a button connect on pin 2 of the Ethernet Shield
 // connected to an Arduino trigger a event named button_pressed on
 // the IFTTT Maker Channel. Based on the Neil Webber analog read code.
 
 // The MIT License
-// 
+//
 // Copyright (c) 2015 Erico Porto
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -115,21 +115,28 @@ void setup() {
 }
 
 // how often to read the pins and update IFTTT
-#define LOOP_DELAY_MSEC     (1*1000L)   // 1 second
-#define BUTTON_DELAY_MSEC     (15*1000L)   // 15 seconds
+#define LOOP_DELAY_MSEC     (1*250L)   // 1/4 second
+#define BUTTON_DELAY_MSEC     (20*1000L)   // 5 seconds
+#define MANTAIN_UNTIL_COUNT     480   // 1 minute
+int count = 0;
 
 // main body; called over and over if it ever returns
 void loop() {
 
-    // DHCP lease check/renewal (library only sends request if expired)
-    Ethernet.maintain();
+    if(count%MANTAIN_UNTIL_COUNT == 0){
+        // DHCP lease check/renewal (library only sends request if expired)
+        Ethernet.maintain();
+        count=0;
+    }
 
     buttonState = digitalRead(READ_THIS_PIN);
-    if (buttonState == HIGH) {  
+    if (buttonState == HIGH) {
          // send to IFTTT/Maker
          send_event();
          delay(BUTTON_DELAY_MSEC);
     }
+
+    count++;
 
     // only "this often"
     delay(LOOP_DELAY_MSEC);
