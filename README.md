@@ -46,4 +46,12 @@ Next, get the code `iftttbutton.ino` on top of this page. With it open on your p
 
 Place the key you got where it's written `blahblahYourKeyGoesHere`.
 In the line below it's the name of the event, which is `button_pressed`.
-You can use it when you create your event on the IFTTT *Create a recipe* or you can change and
+
+#Test
+
+Add this recipe: https://ifttt.com/recipes/319945-track-a-button-to-spreadsheet
+
+Now if you open the spreadsheet, it will add a new row when you click the button.
+
+#Do whatever you want
+Seriously, you can trigger anything you want that's available on IFTTT.
