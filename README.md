@@ -45,7 +45,7 @@ For this to work, first you have to be registered in [IFTTT](https://ifttt.com) 
 3. With it open on your pc, go on the following lines (use Ctrl+F):
 
         char MakerIFTTT_Key[] = "blahblahYourKeyGoesHere";
-       char MakerIFTTT_Event[] = "button_pressed";
+        char MakerIFTTT_Event[] = "button_pressed";
 
 4. Place the key you got where it's written `blahblahYourKeyGoesHere`.
  * In the line below it's the name of the event, which is `button_pressed`.
