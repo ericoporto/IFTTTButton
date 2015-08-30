@@ -40,7 +40,7 @@ So for this to work, first you have to be registered in IFTTT and connect to the
 
 On the [Maker Channel page](https://ifttt.com/maker) there is a key available. Copy it, we will need it!
 
-Next, get the code `iftttbutton.ino` on top of this page. With it open on your pc, go on the following lines (use Ctrl+F):
+Next, get the code [iftttbutton.ino](https://raw.githubusercontent.com/ericoporto/IFTTTButton/master/iftttbutton.ino) on top of this page. With it open on your pc, go on the following lines (use Ctrl+F):
 
     char MakerIFTTT_Key[] = "blahblahYourKeyGoesHere";
     char MakerIFTTT_Event[] = "button_pressed";
@@ -53,8 +53,8 @@ Test
 
 Add this recipe: https://ifttt.com/recipes/319945-track-a-button-to-spreadsheet
 
-You will have to connect the Google Drive Channel. The spreadsheet will be created in IFTTT/Maker/button_pressed .
-Now if you open the spreadsheet, it will add a new row when you click the button.
+You will have to connect the Google Drive Channel. The spreadsheet will be created in `IFTTT/Maker/button_pressed` .
+Now if you open the spreadsheet, it will add a new row when you click the button!
 
 ![it works!](https://raw.githubusercontent.com/ericoporto/IFTTTButton/master/img/itworksyey.gif)
 
